@@ -1,51 +1,126 @@
 # Muslim Time
 
-Muslim Time adalah aplikasi Android sederhana untuk jadwal shalat, adzan/notifikasi, arah kiblat, kalender Islam, kalender Indonesia, dan Mode Ramadhan.
+Muslim Time adalah aplikasi Android sederhana untuk membantu pengguna melihat jadwal shalat, menerima pengingat adzan/notifikasi, mengecek arah kiblat, melihat kalender Islam dan kalender Indonesia, serta memantau jadwal Ramadhan.
 
-## Fitur
+Aplikasi ini dibuat dengan fokus pada tampilan yang ringan, mudah dipahami, dan hemat baterai.
 
-- Jadwal shalat berdasarkan lokasi.
-- Notifikasi/adzan per waktu shalat.
-- Arah kiblat.
-- Kalender Islam.
-- Kalender Indonesia dan hari libur nasional.
-- Mode Ramadhan: sahur, imsak, buka puasa, dan countdown.
+## Fitur Utama
+
+- Jadwal shalat berdasarkan lokasi pengguna.
+- Pengingat shalat dengan pilihan mode: adzan, notifikasi biasa, atau mati.
+- Arah kiblat dengan kompas.
+- Kalender Islam dengan penanda hari ini dan hari besar.
+- Kalender Indonesia dengan hari libur nasional dan cuti bersama.
+- Mode Ramadhan untuk sahur, imsak, Subuh, buka puasa, dan Isya.
 - Tema terang dan gelap.
-- Lokasi hemat baterai: ambil GPS sekali, lalu update pasif saat lokasi berubah signifikan.
+- Lokasi manual sebagai fallback.
+- Strategi lokasi hemat baterai.
 
-## Build
+## Mode Ramadhan
 
-Pastikan Android SDK dan JDK 17 tersedia.
+Mode Ramadhan menyediakan:
 
-```bash
-./gradlew assembleDebug
+- Jadwal sahur.
+- Imsak, dihitung 10 menit sebelum Subuh.
+- Jadwal buka puasa berdasarkan Maghrib.
+- Countdown menuju Sahur, Imsak, atau Buka.
+- Kartu Ramadhan di dashboard saat bulan Ramadhan.
+
+## Strategi Lokasi Hemat Baterai
+
+Muslim Time tidak menjalankan GPS aktif terus-menerus di background.
+
+Alurnya:
+
+1. Saat aplikasi pertama dibuka, aplikasi mengambil lokasi sekali.
+2. Setelah lokasi didapat, aplikasi menyimpan kota/kecamatan.
+3. Update otomatis hanya memakai passive significant location update.
+4. Jadwal shalat dihitung ulang hanya jika lokasi berubah signifikan dan kota berubah.
+5. Pengguna tetap bisa memakai lokasi manual.
+
+Pendekatan ini menjaga jadwal tetap relevan tanpa membebani baterai.
+
+## Teknologi
+
+- Native Android
+- Java
+- Gradle
+- Minimum SDK 23
+- Target SDK 36
+
+## Struktur Project
+
+```text
+MuslimTime/
+├── app/
+│   ├── src/main/java/com/muslimtime/app/
+│   │   ├── location/      # Lokasi dan update hemat baterai
+│   │   ├── notify/        # Adzan, notifikasi, dan scheduler
+│   │   ├── prayer/        # Kalkulasi waktu shalat
+│   │   ├── MainActivity.java
+│   │   ├── Preferences.java
+│   │   └── SplashActivity.java
+│   ├── src/main/res/      # Drawable, raw audio, values
+│   └── build.gradle
+├── gradle/
+├── build.gradle
+├── settings.gradle
+├── gradlew
+└── gradlew.bat
 ```
 
-Untuk Windows:
+## Permission
+
+| Permission | Fungsi |
+| --- | --- |
+| Location | Mengambil lokasi untuk jadwal shalat dan arah kiblat |
+| Notification | Menampilkan pengingat shalat |
+| Exact alarm | Menjadwalkan pengingat shalat lebih tepat |
+| Wake lock | Menjaga proses adzan/notifikasi tetap selesai |
+
+## Cara Build
+
+Pastikan Android SDK dan JDK 17 sudah tersedia.
+
+Windows:
 
 ```powershell
 .\gradlew.bat assembleDebug
 ```
 
-APK debug ada di:
+macOS/Linux:
+
+```bash
+./gradlew assembleDebug
+```
+
+APK debug akan dibuat di:
 
 ```text
 app/build/outputs/apk/debug/app-debug.apk
 ```
 
-## Release
+## Build Release
 
-Build release:
+Windows:
 
 ```powershell
 .\gradlew.bat assembleRelease
 ```
 
+APK release akan dibuat di:
+
+```text
+app/build/outputs/apk/release/app-release.apk
+```
+
 Catatan: konfigurasi release saat ini masih memakai debug signing untuk testing lokal. Untuk publish resmi, gunakan keystore produksi dan jangan commit file keystore ke GitHub.
 
-## Jangan Commit
+## File yang Tidak Di-commit
 
-File/folder berikut sengaja diabaikan:
+Project ini memakai `.gitignore` untuk menghindari file lokal dan hasil build masuk repository.
+
+Contoh file/folder yang diabaikan:
 
 - `.gradle/`
 - `build/`
@@ -53,3 +128,13 @@ File/folder berikut sengaja diabaikan:
 - `local.properties`
 - APK/AAB hasil build
 - file keystore/signing
+
+## Catatan Data
+
+- Jadwal shalat dihitung lokal berdasarkan metode yang tersedia di aplikasi.
+- Kalender Indonesia saat ini memuat data libur nasional/cuti bersama 2026.
+- Aplikasi ini bukan pengganti rujukan resmi keagamaan atau keputusan pemerintah terbaru.
+
+## License
+
+Belum ditentukan.
