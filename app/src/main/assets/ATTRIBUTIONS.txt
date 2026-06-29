@@ -1,0 +1,13 @@
+Muslim Time bundled data and media
+
+Adhan audio
+- Source collection: Adhan MP3 Collection by Kiwifu
+- Repository: https://github.com/Kiwifu/adhan-mp3
+- Bundled files:
+  - Ali_Ibn_Ahmad_Mala_4_-_Al_Haram_Al_Maki_(...).mp3 as adhan_makkah.mp3
+  - Adhan_Al_Haram_Al_Madani_-_Al_Madinah_1_(...).mp3 as adhan_madinah.mp3
+- Note: the repository does not publish a standard license file. Replace these files before public/commercial distribution if you require explicit licensing.
+
+Background visual
+- Generated for Muslim Time with the built-in image generation tool.
+- Prompt: subtle Islamic mobile app background with mosque arch silhouette, faint geometric pattern, soft teal/off-white/pale-gold palette, no text, no watermark.
