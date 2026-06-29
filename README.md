@@ -83,13 +83,13 @@ Pendekatan ini menjaga jadwal tetap relevan tanpa membebani baterai.
 MuslimTime/
 ├── app/
 │   ├── src/main/java/com/muslimtime/app/
-│   │   ├── location/      # Lokasi dan update hemat baterai
-│   │   ├── notify/        # Adzan, notifikasi, dan scheduler
-│   │   ├── prayer/        # Kalkulasi waktu shalat
+│   │   ├── location/      
+│   │   ├── notify/       
+│   │   ├── prayer/        
 │   │   ├── MainActivity.java
 │   │   ├── Preferences.java
 │   │   └── SplashActivity.java
-│   ├── src/main/res/      # Drawable, raw audio, values
+│   ├── src/main/res/      
 │   └── build.gradle
 ├── gradle/
 ├── build.gradle
