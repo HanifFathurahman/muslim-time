@@ -16,6 +16,35 @@ Aplikasi ini dibuat dengan fokus pada tampilan yang ringan, mudah dipahami, dan 
 - Lokasi manual sebagai fallback.
 - Strategi lokasi hemat baterai.
 
+## Screenshot
+
+<table>
+  <tr>
+    <td align="center"><strong>Dashboard</strong></td>
+    <td align="center"><strong>Jadwal Shalat</strong></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/Screenshot_2026-06-30-05-48-19-001_com.muslimtime.app.jpg" width="260" alt="Dashboard Muslim Time"></td>
+    <td><img src="docs/screenshots/Screenshot_2026-06-30-05-48-23-393_com.muslimtime.app.jpg" width="260" alt="Jadwal Shalat"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Arah Kiblat</strong></td>
+    <td align="center"><strong>Kalender Islam</strong></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/Screenshot_2026-06-30-05-48-26-910_com.muslimtime.app.jpg" width="260" alt="Arah Kiblat"></td>
+    <td><img src="docs/screenshots/Screenshot_2026-06-30-05-48-29-529_com.muslimtime.app.jpg" width="260" alt="Kalender Islam"></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Kalender Indonesia</strong></td>
+    <td align="center"><strong></strong></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/Screenshot_2026-06-30-05-48-31-816_com.muslimtime.app.jpg" width="260" alt="Kalender Indonesia"></td>
+    <td></td>
+  </tr>
+</table>
+
 ## Mode Ramadhan
 
 Mode Ramadhan menyediakan:
