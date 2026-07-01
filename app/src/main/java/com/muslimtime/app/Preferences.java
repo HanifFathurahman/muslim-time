@@ -3,11 +3,14 @@ package com.muslimtime.app;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import java.util.Locale;
+
 public final class Preferences {
-    public static final String TONE_ADHAN_SOFT = "adhan_makkah";
+    public static final String TONE_ADHAN_SOFT = "adhan_default";
     public static final String TONE_ADHAN_CLASSIC = "adhan_madinah";
     public static final String TONE_SYSTEM = "system_alarm";
     public static final String TONE_SILENT = "silent";
+    private static final String TONE_LEGACY_MAKKAH = "adhan_makkah";
     public static final String PRAYER_MODE_ADHAN = "adhan";
     public static final String PRAYER_MODE_NOTIFY = "notify";
     public static final String PRAYER_MODE_OFF = "off";
@@ -105,14 +108,14 @@ public final class Preferences {
 
     public static String getTone(Context context) {
         String tone = prefs(context).getString(KEY_TONE, TONE_ADHAN_SOFT);
-        if (TONE_SYSTEM.equals(tone)) {
+        if (TONE_SYSTEM.equals(tone) || TONE_LEGACY_MAKKAH.equals(tone)) {
             return TONE_ADHAN_SOFT;
         }
         return tone;
     }
 
     public static void setTone(Context context, String tone) {
-        if (TONE_SYSTEM.equals(tone)) {
+        if (TONE_SYSTEM.equals(tone) || TONE_LEGACY_MAKKAH.equals(tone)) {
             tone = TONE_ADHAN_SOFT;
         }
         prefs(context).edit().putString(KEY_TONE, tone).apply();
@@ -158,6 +161,6 @@ public final class Preferences {
     }
 
     private static String prayerModeKey(String prayerName) {
-        return "prayer_mode_" + prayerName.toLowerCase().replace(" ", "_");
+        return "prayer_mode_" + prayerName.toLowerCase(Locale.US).replace(" ", "_");
     }
 }

@@ -58,6 +58,7 @@ import java.util.List;
 import java.util.Locale;
 
 @SuppressWarnings("deprecation")
+@SuppressLint("SetTextI18n")
 public class MainActivity extends Activity implements SensorEventListener {
     private static final int SCREEN_HOME = 0;
     private static final int SCREEN_SCHEDULE = 1;
@@ -651,7 +652,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         TextView title = text("Muslim Time", 26, Color.WHITE, Typeface.BOLD);
         top.addView(title, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
         clockText = text("--:--:--", 18, Color.WHITE, Typeface.BOLD);
-        clockText.setGravity(Gravity.RIGHT);
+        clockText.setGravity(Gravity.END);
         top.addView(clockText);
         hero.addView(top, fullWidthParams());
 
@@ -681,12 +682,12 @@ public class MainActivity extends Activity implements SensorEventListener {
                 24, color("#FDE68A"), Typeface.BOLD);
         bottom.addView(time, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
         countdownText = text("--:--:--", 18, Color.WHITE, Typeface.BOLD);
-        countdownText.setGravity(Gravity.RIGHT);
+        countdownText.setGravity(Gravity.END);
         bottom.addView(countdownText);
         hero.addView(bottom, fullWidthParams());
 
         countdownLabelText = text("Menuju waktu shalat", 13, color("#CFF7EC"), Typeface.NORMAL);
-        countdownLabelText.setGravity(Gravity.RIGHT);
+        countdownLabelText.setGravity(Gravity.END);
         hero.addView(countdownLabelText, fullWidthParams());
 
         if (next != null && next.prayerTime != null) {
@@ -780,7 +781,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         row.addView(labels, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
         TextView timeView = text(time, 18, color("#0F766E"), Typeface.BOLD);
-        timeView.setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+        timeView.setGravity(Gravity.END | Gravity.CENTER_VERTICAL);
         row.addView(timeView);
 
         LinearLayout wrapper = new LinearLayout(this);
@@ -1240,7 +1241,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         row.addView(labels, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
 
         TextView time = text(prayerTime.label(), 18, prayerTime.notify ? color("#0F766E") : color("#8A6D1D"), Typeface.BOLD);
-        time.setGravity(Gravity.RIGHT);
+        time.setGravity(Gravity.END);
         row.addView(time);
         return row;
     }
@@ -2262,7 +2263,7 @@ public class MainActivity extends Activity implements SensorEventListener {
         bar.addView(back, new LinearLayout.LayoutParams(dp(104), dp(44)));
 
         TextView titleView = text(title, 24, color("#172026"), Typeface.BOLD);
-        titleView.setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+        titleView.setGravity(Gravity.END | Gravity.CENTER_VERTICAL);
         bar.addView(titleView, new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f));
         page.addView(bar);
         addSpacer(page, 14);

@@ -45,7 +45,10 @@ public final class SignificantLocationMonitor {
         if (manager == null) {
             return;
         }
-        manager.removeUpdates(pendingIntent(context));
+        try {
+            manager.removeUpdates(pendingIntent(context));
+        } catch (SecurityException ignored) {
+        }
     }
 
     private static boolean hasLocationPermission(Context context) {

@@ -107,6 +107,57 @@ MuslimTime/
 | Exact alarm | Menjadwalkan pengingat shalat lebih tepat |
 | Wake lock | Menjaga proses adzan/notifikasi tetap selesai |
 
+## Cara Build
+
+Pastikan Android SDK dan JDK 17 sudah tersedia.
+
+Windows:
+
+```powershell
+.\gradlew.bat assembleDebug
+```
+
+macOS/Linux:
+
+```bash
+./gradlew assembleDebug
+```
+
+APK debug akan dibuat di:
+
+```text
+app/build/outputs/apk/debug/app-debug.apk
+```
+
+## Build Release
+
+Windows:
+
+```powershell
+.\gradlew.bat assembleRelease
+```
+
+APK release akan dibuat di:
+
+```text
+app/build/outputs/apk/release/app-release.apk
+```
+
+Catatan: konfigurasi release saat ini masih memakai debug signing untuk testing lokal. Untuk publish resmi, gunakan keystore produksi dan jangan commit file keystore ke GitHub.
+
+## File yang Tidak Di-commit
+
+Project ini memakai `.gitignore` untuk menghindari file lokal dan hasil build masuk repository.
+
+Contoh file/folder yang diabaikan:
+
+- `.gradle/`
+- `build/`
+- `app/build/`
+- `local.properties`
+- APK/AAB hasil build
+- file keystore/signing
+
 ## Catatan Data
 
 - Jadwal shalat dihitung lokal berdasarkan metode yang tersedia di aplikasi.
